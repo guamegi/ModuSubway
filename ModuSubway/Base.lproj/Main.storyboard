@@ -16,12 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAP-zD-Yjc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syO-QG-cwC">
-                                <rect key="frame" x="0.0" y="1295" width="0.0" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="lM4-en-8Bi"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem systemItem="favorites" id="Xer-tZ-Tqh"/>
                                     <tabBarItem systemItem="more" id="F8D-3c-lFQ"/>
@@ -30,13 +33,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="dAP-zD-Yjc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="20m-aq-gk8"/>
+                            <constraint firstItem="dAP-zD-Yjc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="20m-aq-gk8"/>
                             <constraint firstItem="syO-QG-cwC" firstAttribute="top" secondItem="dAP-zD-Yjc" secondAttribute="bottom" id="CTN-cs-b2n"/>
                             <constraint firstItem="syO-QG-cwC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="N8r-nV-JJi"/>
                             <constraint firstItem="syO-QG-cwC" firstAttribute="top" secondItem="dAP-zD-Yjc" secondAttribute="bottom" id="P6n-cL-hOZ"/>
-                            <constraint firstItem="dAP-zD-Yjc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SXL-1U-ReZ"/>
+                            <constraint firstItem="dAP-zD-Yjc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SXL-1U-ReZ"/>
                             <constraint firstItem="syO-QG-cwC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="W7l-dJ-OcT"/>
-                            <constraint firstItem="dAP-zD-Yjc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="eSo-bg-8kp"/>
+                            <constraint firstItem="dAP-zD-Yjc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eSo-bg-8kp"/>
                             <constraint firstItem="syO-QG-cwC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tTr-Pd-ILi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
