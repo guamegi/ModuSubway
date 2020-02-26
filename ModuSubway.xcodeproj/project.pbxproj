@@ -13,7 +13,7 @@
 		A630EAA62405693400E1439E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A630EAA42405693400E1439E /* Main.storyboard */; };
 		A630EAA82405693500E1439E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A630EAA72405693500E1439E /* Assets.xcassets */; };
 		A630EAAB2405693500E1439E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A630EAA92405693500E1439E /* LaunchScreen.storyboard */; };
-		A630EAB32405699C00E1439E /* subway.png in Resources */ = {isa = PBXBuildFile; fileRef = A630EAB22405699C00E1439E /* subway.png */; };
+		A630EAB52406B1A500E1439E /* img_subway.png in Resources */ = {isa = PBXBuildFile; fileRef = A630EAB42406B1A500E1439E /* img_subway.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		A630EAA72405693500E1439E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A630EAAA2405693500E1439E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A630EAAC2405693500E1439E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A630EAB22405699C00E1439E /* subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = subway.png; sourceTree = "<group>"; };
+		A630EAB42406B1A500E1439E /* img_subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_subway.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				A630EAA02405693400E1439E /* SceneDelegate.swift */,
 				A630EAA22405693400E1439E /* ViewController.swift */,
 				A630EAA42405693400E1439E /* Main.storyboard */,
-				A630EAB22405699C00E1439E /* subway.png */,
+				A630EAB42406B1A500E1439E /* img_subway.png */,
 				A630EAA72405693500E1439E /* Assets.xcassets */,
 				A630EAA92405693500E1439E /* LaunchScreen.storyboard */,
 				A630EAAC2405693500E1439E /* Info.plist */,
@@ -128,7 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A630EAB32405699C00E1439E /* subway.png in Resources */,
+				A630EAB52406B1A500E1439E /* img_subway.png in Resources */,
 				A630EAAB2405693500E1439E /* LaunchScreen.storyboard in Resources */,
 				A630EAA82405693500E1439E /* Assets.xcassets in Resources */,
 				A630EAA62405693400E1439E /* Main.storyboard in Resources */,

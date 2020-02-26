@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
-    var scrollView: UIScrollView!
-    var imageView: UIImageView!
+//    var scrollView: UIScrollView!
+//    var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
+    
     
     var pinchGesture = UIPinchGestureRecognizer()
     
@@ -60,20 +63,20 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         // 스크롤뷰 생성
-        let frameSize = view.bounds.size
-        scrollView = UIScrollView(frame: CGRect(origin: CGPoint.zero, size: frameSize))
-        
-        let image = UIImage(named: "subway.png")
-        imageView = UIImageView(image: image)
+//        let frameSize = view.bounds.size
+//        scrollView = UIScrollView(frame: CGRect(origin: CGPoint.zero, size: frameSize))
+//
+//        let image = UIImage(named: "img_subway.png")
+//        imageView = UIImageView(image: image)
         scrollView.contentSize = imageView.bounds.size
         
         // view에 뿌려주기
-        scrollView.addSubview(imageView)
-        view.addSubview(scrollView)
+//        scrollView.addSubview(imageView)
+//        view.addSubview(scrollView)
         
         // zoom scale
-        scrollView.maximumZoomScale = 1.0
-        scrollView.minimumZoomScale = 0.1
+        scrollView.maximumZoomScale = 2.0
+        scrollView.minimumZoomScale = 0.7
         
         scrollView.delegate = self
         
@@ -97,10 +100,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @objc func tapToZoom() {
         
         // 더블탭 간단하게 구현
-        if scrollView.zoomScale == CGFloat(0.1) {
-            scrollView.setZoomScale(1.0, animated: true)
+        if scrollView.zoomScale == CGFloat(0.7) {
+            scrollView.setZoomScale(2.0, animated: true)
         } else {
-            scrollView.setZoomScale(0.1, animated: true)
+            scrollView.setZoomScale(0.7, animated: true)
         }
     }
     
@@ -111,12 +114,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     // view가 나타나면 offset 이동
     override func viewDidAppear(_ animated: Bool) {
-//        let xPoint = self.view.frame.size.width/2
-//        let yPoint = self.view.frame.size.height/2
-        // offset 임의대로 때려박음
-        scrollView.setContentOffset(CGPoint(x: 800, y: 300), animated: true)
+////        let xPoint = self.view.frame.size.width/2
+////        let yPoint = self.view.frame.size.height/2
+        
         // zoom scale 설정
-        scrollView.setZoomScale(0.3, animated: true)
+        scrollView.setZoomScale(1.0, animated: true)
+        // offset 임의대로 때려박음
+        scrollView.setContentOffset(CGPoint(x: 450, y: 200), animated: true)
     }
 
 }
