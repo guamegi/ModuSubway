@@ -76,7 +76,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         // zoom scale
         scrollView.maximumZoomScale = 2.0
-        scrollView.minimumZoomScale = 0.7
+        scrollView.minimumZoomScale = 0.8
         
         scrollView.delegate = self
         
@@ -100,10 +100,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @objc func tapToZoom() {
         
         // 더블탭 간단하게 구현
-        if scrollView.zoomScale == CGFloat(0.7) {
+        if scrollView.zoomScale == CGFloat(0.8) {
             scrollView.setZoomScale(2.0, animated: true)
         } else {
-            scrollView.setZoomScale(0.7, animated: true)
+            scrollView.setZoomScale(0.8, animated: true)
         }
     }
     
