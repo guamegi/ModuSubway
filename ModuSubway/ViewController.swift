@@ -49,6 +49,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let gaepodongBtn = UIButton()           // 개포동
     let daemosanBtn = UIButton()            // 대모산입구
     let suseoBtn = UIButton()               // 수서
+    let bokjeongBtn = UIButton()               // 복정
     let gachonUnivBtn = UIButton()          // 가천대
     let taepyeongBtn = UIButton()           // 태평
     let moranBtn = UIButton()               // 모란
@@ -146,9 +147,69 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         dogokBtn.backgroundColor = UIColor.red
         dogokBtn.alpha = 0.5
         
-        guryongBtn.frame = CGRect(x: 725, y: 688, width: 23, height: 23)
+        guryongBtn.frame = CGRect(x: 725, y: 687, width: 23, height: 23)
         guryongBtn.backgroundColor = UIColor.red
         guryongBtn.alpha = 0.5
+        
+        gaepodongBtn.frame = CGRect(x: 737, y: 708, width: 23, height: 23)
+        gaepodongBtn.backgroundColor = UIColor.red
+        gaepodongBtn.alpha = 0.5
+        
+        daemosanBtn.frame = CGRect(x: 780, y: 707, width: 23, height: 23)
+        daemosanBtn.backgroundColor = UIColor.red
+        daemosanBtn.alpha = 0.5
+        
+        suseoBtn.frame = CGRect(x: 824, y: 707, width: 23, height: 23)
+        suseoBtn.backgroundColor = UIColor.red
+        suseoBtn.alpha = 0.5
+        
+        bokjeongBtn.frame = CGRect(x: 859, y: 707, width: 23, height: 23)
+        bokjeongBtn.backgroundColor = UIColor.red
+        bokjeongBtn.alpha = 0.5
+        
+        gachonUnivBtn.frame = CGRect(x: 887, y: 749, width: 23, height: 23)
+        gachonUnivBtn.backgroundColor = UIColor.red
+        gachonUnivBtn.alpha = 0.5
+        
+        taepyeongBtn.frame = CGRect(x: 926, y: 748, width: 23, height: 23)
+        taepyeongBtn.backgroundColor = UIColor.red
+        taepyeongBtn.alpha = 0.5
+        
+        moranBtn.frame = CGRect(x: 962, y: 748, width: 23, height: 23)
+        moranBtn.backgroundColor = UIColor.red
+        moranBtn.alpha = 0.5
+        
+        yatapBtn.frame = CGRect(x: 988, y: 748, width: 20, height: 20)
+        yatapBtn.backgroundColor = UIColor.red
+        yatapBtn.alpha = 0.5
+        
+        imaeBtn.frame = CGRect(x: 988, y: 768, width: 20, height: 20)
+        imaeBtn.backgroundColor = UIColor.red
+        imaeBtn.alpha = 0.5
+        
+        seohyeonBtn.frame = CGRect(x: 988, y: 788, width: 20, height: 20)
+        seohyeonBtn.backgroundColor = UIColor.red
+        seohyeonBtn.alpha = 0.5
+        
+        sunaeBtn.frame = CGRect(x: 988, y: 808, width: 20, height: 20)
+        sunaeBtn.backgroundColor = UIColor.red
+        sunaeBtn.alpha = 0.5
+        
+        jeongjaBtn.frame = CGRect(x: 965, y: 802, width: 23, height: 23)
+        jeongjaBtn.backgroundColor = UIColor.red
+        jeongjaBtn.alpha = 0.5
+        
+        migeumBtn.frame = CGRect(x: 940, y: 802, width: 23, height: 23)
+        migeumBtn.backgroundColor = UIColor.red
+        migeumBtn.alpha = 0.5
+        
+        oriBtn.frame = CGRect(x: 913, y: 802, width: 23, height: 23)
+        oriBtn.backgroundColor = UIColor.red
+        oriBtn.alpha = 0.5
+        
+        jukjeonBtn.frame = CGRect(x: 886, y: 802, width: 23, height: 23)
+        jukjeonBtn.backgroundColor = UIColor.red
+        jukjeonBtn.alpha = 0.5
         
         suwonBtn.frame = CGRect(x: 464, y: 792, width: 23, height: 23)
         suwonBtn.backgroundColor = UIColor.red
@@ -164,6 +225,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         imageView.addSubview(hantiBtn)
         imageView.addSubview(dogokBtn)
         imageView.addSubview(guryongBtn)
+        imageView.addSubview(gaepodongBtn)
+        imageView.addSubview(daemosanBtn)
+        imageView.addSubview(suseoBtn)
+        imageView.addSubview(bokjeongBtn)
+        imageView.addSubview(gachonUnivBtn)
+        imageView.addSubview(taepyeongBtn)
+        imageView.addSubview(moranBtn)
+        imageView.addSubview(yatapBtn)
+        imageView.addSubview(imaeBtn)
+        imageView.addSubview(seohyeonBtn)
+        imageView.addSubview(sunaeBtn)
+        imageView.addSubview(jeongjaBtn)
+        imageView.addSubview(migeumBtn)
+        imageView.addSubview(oriBtn)
+        imageView.addSubview(jukjeonBtn)
         imageView.addSubview(suwonBtn)
         
         // TODO : 버튼 기능 연결 //
@@ -176,18 +252,48 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         hantiBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         dogokBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         guryongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        gaepodongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        daemosanBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        suseoBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        bokjeongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        gachonUnivBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        taepyeongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        moranBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        yatapBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        imaeBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        seohyeonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        sunaeBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        jeongjaBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        migeumBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        oriBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        jukjeonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         suwonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         
         // TODO : 역 이름 설정. alert에 text 넘기기 위한 용도 //
         wangsimniBtn.titleLabel?.text = "왕십리"
         seoulForestBtn.titleLabel?.text = "서울숲"
-        apgujeongRodeoBtn.titleLabel?.text = "입구정 로데오"
+        apgujeongRodeoBtn.titleLabel?.text = "입구정로데오"
         gangnamGuOfficeBtn.titleLabel?.text = "강남구청"
         seonjeongneungBtn.titleLabel?.text = "선정릉"
         seolleungBtn.titleLabel?.text = "선릉"
         hantiBtn.titleLabel?.text = "한티"
         dogokBtn.titleLabel?.text = "도곡"
         guryongBtn.titleLabel?.text = "구룡"
+        gaepodongBtn.titleLabel?.text = "개포동"
+        daemosanBtn.titleLabel?.text = "대모산입구"
+        suseoBtn.titleLabel?.text = "수서"
+        bokjeongBtn.titleLabel?.text = "복정"
+        gachonUnivBtn.titleLabel?.text = "가천대"
+        taepyeongBtn.titleLabel?.text = "태평"
+        moranBtn.titleLabel?.text = "모란"
+        yatapBtn.titleLabel?.text = "야탑"
+        imaeBtn.titleLabel?.text = "이매"
+        seohyeonBtn.titleLabel?.text = "서현"
+        sunaeBtn.titleLabel?.text = "수내"
+        jeongjaBtn.titleLabel?.text = "정자"
+        migeumBtn.titleLabel?.text = "미금"
+        oriBtn.titleLabel?.text = "오리"
+        jukjeonBtn.titleLabel?.text = "죽전"
         suwonBtn.titleLabel?.text = "수원"
         
     }
@@ -195,12 +301,45 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     // TODO : 역 버튼 기능
     @objc func btnAction(_ sender: UIButton) {
 //        print("버튼 눌림")
-        let popAlert = UIAlertController(title: "출발역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
+        clickBtn += 1
         
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        if clickBtn == 1 {
+            // startStation에 출발역 넣기
+            startStation = String(sender.titleLabel!.text!)
+            
+            // start alert
+            let popAlert = UIAlertController(title: "출발역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            popAlert.addAction(okAction)
+            self.present(popAlert, animated: true, completion: nil)
+            
+            // TODO : 버튼 백그라운드 색상 변경
+        } else {
+            // arrivalStation에 도착역 넣기
+            arrivalStation = String(sender.titleLabel!.text!)
+            
+            // 출발역과 도착역이 다르면 alert 띄우기
+            if startStation == arrivalStation {
+                
+            } else {
+                // arrival alert
+                let popAlert = UIAlertController(title: "도착역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                
+                popAlert.addAction(okAction)
+                self.present(popAlert, animated: true, completion: nil)
+                
+                // TODO : 버튼 백그라운드 색상 변경
+                
+                // clickBtn 초기화
+                clickBtn = 0
+            }
+            
+        }
         
-        popAlert.addAction(okAction)
-        self.present(popAlert, animated: true, completion: nil)
     }
     
     // 더블탭 줌인, 줌아웃
