@@ -98,6 +98,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
+        // zoom scale 설정
+        scrollView.setZoomScale(1.0, animated: true)
+        // offset 센터로 이동
+        scrollView.setContentOffset(CGPoint(x: 450, y: 200), animated: true)
+        
         // 더블탭 만들기
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(tapToZoom))
         doubleTap.numberOfTapsRequired = 2
@@ -117,9 +122,33 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         seoulForestBtn.backgroundColor = UIColor.red
         seoulForestBtn.alpha = 0.5
         
+        apgujeongRodeoBtn.frame = CGRect(x: 744, y: 520, width: 23, height: 23)
+        apgujeongRodeoBtn.backgroundColor = .red
+        apgujeongRodeoBtn.alpha = 0.5
+        
+        gangnamGuOfficeBtn.frame = CGRect(x: 739, y: 544, width: 23, height: 23)
+        gangnamGuOfficeBtn.backgroundColor = .red
+        gangnamGuOfficeBtn.alpha = 0.5
+        
+        seonjeongneungBtn.frame = CGRect(x: 738, y: 587, width: 23, height: 23)
+        seonjeongneungBtn.backgroundColor = .red
+        seonjeongneungBtn.alpha = 0.5
+        
         seolleungBtn.frame = CGRect(x: 725, y: 616, width: 23, height: 23)
         seolleungBtn.backgroundColor = UIColor.red
         seolleungBtn.alpha = 0.5
+        
+        hantiBtn.frame = CGRect(x: 725, y: 639, width: 23, height: 23)
+        hantiBtn.backgroundColor = UIColor.red
+        hantiBtn.alpha = 0.5
+        
+        dogokBtn.frame = CGRect(x: 725, y: 662, width: 23, height: 23)
+        dogokBtn.backgroundColor = UIColor.red
+        dogokBtn.alpha = 0.5
+        
+        guryongBtn.frame = CGRect(x: 725, y: 688, width: 23, height: 23)
+        guryongBtn.backgroundColor = UIColor.red
+        guryongBtn.alpha = 0.5
         
         suwonBtn.frame = CGRect(x: 464, y: 792, width: 23, height: 23)
         suwonBtn.backgroundColor = UIColor.red
@@ -128,27 +157,44 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         // TODO : 버튼 imageView에 추가 //
         imageView.addSubview(wangsimniBtn)
         imageView.addSubview(seoulForestBtn)
+        imageView.addSubview(apgujeongRodeoBtn)
+        imageView.addSubview(gangnamGuOfficeBtn)
+        imageView.addSubview(seonjeongneungBtn)
         imageView.addSubview(seolleungBtn)
+        imageView.addSubview(hantiBtn)
+        imageView.addSubview(dogokBtn)
+        imageView.addSubview(guryongBtn)
         imageView.addSubview(suwonBtn)
         
         // TODO : 버튼 기능 연결 //
         wangsimniBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         seoulForestBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        apgujeongRodeoBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        gangnamGuOfficeBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        seonjeongneungBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         seolleungBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        hantiBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        dogokBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        guryongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         suwonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         
         // TODO : 역 이름 설정. alert에 text 넘기기 위한 용도 //
         wangsimniBtn.titleLabel?.text = "왕십리"
         seoulForestBtn.titleLabel?.text = "서울숲"
+        apgujeongRodeoBtn.titleLabel?.text = "입구정 로데오"
+        gangnamGuOfficeBtn.titleLabel?.text = "강남구청"
+        seonjeongneungBtn.titleLabel?.text = "선정릉"
         seolleungBtn.titleLabel?.text = "선릉"
+        hantiBtn.titleLabel?.text = "한티"
+        dogokBtn.titleLabel?.text = "도곡"
+        guryongBtn.titleLabel?.text = "구룡"
         suwonBtn.titleLabel?.text = "수원"
         
     }
     
     // TODO : 역 버튼 기능
     @objc func btnAction(_ sender: UIButton) {
-        print("버튼 눌림")
-        
+//        print("버튼 눌림")
         let popAlert = UIAlertController(title: "출발역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -157,6 +203,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         self.present(popAlert, animated: true, completion: nil)
     }
     
+    // 더블탭 줌인, 줌아웃
     @objc func tapToZoom() {
         // 더블탭 간단하게 구현
         if scrollView.zoomScale == CGFloat(0.8) {
@@ -172,12 +219,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // view가 나타나면 offset 이동
-    override func viewDidAppear(_ animated: Bool) {
-        // zoom scale 설정
-        scrollView.setZoomScale(1.0, animated: true)
-        // offset 임의대로 때려박음
-        scrollView.setContentOffset(CGPoint(x: 450, y: 200), animated: true)
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        // zoom scale 설정
+//        scrollView.setZoomScale(1.0, animated: true)
+//        // offset 임의대로 때려박음
+//        scrollView.setContentOffset(CGPoint(x: 450, y: 200), animated: true)
+//    }
 
 }
 
