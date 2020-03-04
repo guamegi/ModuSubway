@@ -378,19 +378,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     // TODO : 역 버튼 기능
     @objc func btnAction(_ sender: UIButton) {
 //        print("버튼 눌림")
-        clickBtn += 1
+//        clickBtn += 1
         
-        if clickBtn == 1 {
+        if clickBtn == 0 {
             // startStation에 출발역 넣기
             startStation = String(sender.titleLabel!.text!)
             
             // start alert
             let popAlert = UIAlertController(title: "출발역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+//                print("확인")
+                // ok 버튼 누르면 clickBtn 카운트 +1
+                self.clickBtn += 1
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
             
-            popAlert.addAction(okAction)
-            self.present(popAlert, animated: true, completion: nil)
+            popAlert.addAction(cancelAction)
+            popAlert.addAction(okAction)        // ok 버튼을 우측으로 나오게
+            present(popAlert, animated: true, completion: nil)
             
             // TODO : 버튼 백그라운드 색상 변경
         } else {
@@ -404,15 +410,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 // arrival alert
                 let popAlert = UIAlertController(title: "도착역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
                 
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // clickBtn 카운트 초기화
+                    self.clickBtn = 0
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
                 
+                popAlert.addAction(cancelAction)
                 popAlert.addAction(okAction)
-                self.present(popAlert, animated: true, completion: nil)
+                present(popAlert, animated: true, completion: nil)
                 
                 // TODO : 버튼 백그라운드 색상 변경
                 
-                // clickBtn 초기화
-                clickBtn = 0
             }
             
         }
