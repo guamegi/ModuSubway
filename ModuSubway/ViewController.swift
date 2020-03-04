@@ -36,6 +36,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     // 김포도시철도
     // 경의.중앙선
     // 경춘선
+    // 경강선
+    // 서해선
     // 분당선
     let wangsimniBtn = UIButton()           // 왕십리
     let seoulForestBtn = UIButton()         // 서울숲
@@ -73,8 +75,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     let suwonCityHallBtn = UIButton()       // 수원시청
     let maegyoBtn = UIButton()              // 매교
     let suwonBtn = UIButton()               // 수원
-    // 경강선
-    // 서해선
     
     // 버튼 클릭 횟수
     var clickBtn = 0
@@ -100,9 +100,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         
         // zoom scale 설정
-        scrollView.setZoomScale(1.0, animated: true)
+        scrollView.setZoomScale(1.5, animated: true)
         // offset 센터로 이동
-        scrollView.setContentOffset(CGPoint(x: 450, y: 200), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 900, y: 600), animated: true)
         
         // 더블탭 만들기
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(tapToZoom))
@@ -211,6 +211,50 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         jukjeonBtn.backgroundColor = UIColor.red
         jukjeonBtn.alpha = 0.5
         
+        bojeongBtn.frame = CGRect(x: 858, y: 803, width: 23, height: 23)
+        bojeongBtn.backgroundColor = UIColor.red
+        bojeongBtn.alpha = 0.5
+        
+        guseoungBtn.frame = CGRect(x: 836, y: 777, width: 23, height: 23)
+        guseoungBtn.backgroundColor = UIColor.red
+        guseoungBtn.alpha = 0.5
+        
+        singalBtn.frame = CGRect(x: 804, y: 762, width: 23, height: 23)
+        singalBtn.backgroundColor = UIColor.red
+        singalBtn.alpha = 0.5
+        
+        giheungBtn.frame = CGRect(x: 758, y: 763, width: 23, height: 23)
+        giheungBtn.backgroundColor = UIColor.red
+        giheungBtn.alpha = 0.5
+        
+        sanggalBtn.frame = CGRect(x: 718, y: 763, width: 23, height: 23)
+        sanggalBtn.backgroundColor = UIColor.red
+        sanggalBtn.alpha = 0.5
+        
+        cheongmyeongBtn.frame = CGRect(x: 679, y: 763, width: 23, height: 23)
+        cheongmyeongBtn.backgroundColor = UIColor.red
+        cheongmyeongBtn.alpha = 0.5
+        
+        yeongtongBtn.frame = CGRect(x: 640, y: 763, width: 23, height: 23)
+        yeongtongBtn.backgroundColor = UIColor.red
+        yeongtongBtn.alpha = 0.5
+        
+        mangpoBtn.frame = CGRect(x: 607, y: 763, width: 23, height: 23)
+        mangpoBtn.backgroundColor = UIColor.red
+        mangpoBtn.alpha = 0.5
+        
+        maetanGwonseonBtn.frame = CGRect(x: 569, y: 763, width: 23, height: 23)
+        maetanGwonseonBtn.backgroundColor = UIColor.red
+        maetanGwonseonBtn.alpha = 0.5
+        
+        suwonCityHallBtn.frame = CGRect(x: 530, y: 763, width: 23, height: 23)
+        suwonCityHallBtn.backgroundColor = UIColor.red
+        suwonCityHallBtn.alpha = 0.5
+        
+        maegyoBtn.frame = CGRect(x: 492, y: 763, width: 23, height: 23)
+        maegyoBtn.backgroundColor = UIColor.red
+        maegyoBtn.alpha = 0.5
+        
         suwonBtn.frame = CGRect(x: 464, y: 792, width: 23, height: 23)
         suwonBtn.backgroundColor = UIColor.red
         suwonBtn.alpha = 0.5
@@ -240,6 +284,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         imageView.addSubview(migeumBtn)
         imageView.addSubview(oriBtn)
         imageView.addSubview(jukjeonBtn)
+        imageView.addSubview(bojeongBtn)
+        imageView.addSubview(guseoungBtn)
+        imageView.addSubview(singalBtn)
+        imageView.addSubview(giheungBtn)
+        imageView.addSubview(sanggalBtn)
+        imageView.addSubview(cheongmyeongBtn)
+        imageView.addSubview(yeongtongBtn)
+        imageView.addSubview(mangpoBtn)
+        imageView.addSubview(maetanGwonseonBtn)
+        imageView.addSubview(suwonCityHallBtn)
+        imageView.addSubview(maegyoBtn)
         imageView.addSubview(suwonBtn)
         
         // TODO : 버튼 기능 연결 //
@@ -267,6 +322,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         migeumBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         oriBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         jukjeonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        bojeongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        guseoungBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        singalBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        giheungBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        sanggalBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        cheongmyeongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        yeongtongBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        mangpoBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        maetanGwonseonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        suwonCityHallBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
+        maegyoBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         suwonBtn.addTarget(self, action: #selector(btnAction(_:)), for: .touchUpInside)
         
         // TODO : 역 이름 설정. alert에 text 넘기기 위한 용도 //
@@ -294,6 +360,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         migeumBtn.titleLabel?.text = "미금"
         oriBtn.titleLabel?.text = "오리"
         jukjeonBtn.titleLabel?.text = "죽전"
+        bojeongBtn.titleLabel?.text = "보정"
+        guseoungBtn.titleLabel?.text = "구성"
+        singalBtn.titleLabel?.text = "신갈"
+        giheungBtn.titleLabel?.text = "기흥"
+        sanggalBtn.titleLabel?.text = "상갈"
+        cheongmyeongBtn.titleLabel?.text = "청명"
+        yeongtongBtn.titleLabel?.text = "영통"
+        mangpoBtn.titleLabel?.text = "망포"
+        maetanGwonseonBtn.titleLabel?.text = "메탄권선"
+        suwonCityHallBtn.titleLabel?.text = "수원시청"
+        maegyoBtn.titleLabel?.text = "매교"
         suwonBtn.titleLabel?.text = "수원"
         
     }
