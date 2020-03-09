@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var currentLocationButton: UIButton!
+    
+    // location manager
+    var locationManager: CLLocationManager!
+    
+    // timer. 위치 5초마다 갱신 용도
+    var sTimer: Timer?
     
     // pinch 제스처 객체 생성
     var pinchGesture = UIPinchGestureRecognizer()
@@ -81,11 +89,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     // 출발, 도착역 설정
     var startStation = ""
-    var arrivalStation = ""
+    var endStation = ""
     
     // 스타트역의 tag 값을 가져온다
     var getStartStationTag = 0
     
+    // 위도, 경도
+    var latitude: CLLocationDistance?
+    var longitude: CLLocationDistance?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +114,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         scrollView.setZoomScale(1.5, animated: true)
         // offset 센터로 이동
         scrollView.setContentOffset(CGPoint(x: 900, y: 600), animated: true)
+        
+        // current location button 둥글게
+        currentLocationButton.layer.cornerRadius = 0.5 * currentLocationButton.bounds.size.width
+
         
         // 더블탭 만들기
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(tapToZoom))
@@ -338,7 +353,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         // TODO : 역 이름 설정. alert에 text 넘기기 위한 용도 //
         wangsimniBtn.titleLabel?.text = "왕십리"
         seoulForestBtn.titleLabel?.text = "서울숲"
-        apgujeongRodeoBtn.titleLabel?.text = "입구정로데오"
+        apgujeongRodeoBtn.titleLabel?.text = "압구정로데오"
         gangnamGuOfficeBtn.titleLabel?.text = "강남구청"
         seonjeongneungBtn.titleLabel?.text = "선정릉"
         seolleungBtn.titleLabel?.text = "선릉"
@@ -377,8 +392,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     // TODO : 역 버튼 기능
     @objc func btnAction(_ sender: UIButton) {
-//        print("버튼 눌림")
-//        clickBtn += 1
         
         if clickBtn == 0 {
             // startStation에 출발역 넣기
@@ -387,12 +400,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             // start alert
             let popAlert = UIAlertController(title: "출발역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-//                print("확인")
+            let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
                 // ok 버튼 누르면 clickBtn 카운트 +1
                 self.clickBtn += 1
             }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            let cancelAction = UIAlertAction(title: "취소", style: .destructive, handler: nil)
             
             popAlert.addAction(cancelAction)
             popAlert.addAction(okAction)        // ok 버튼을 우측으로 나오게
@@ -401,20 +413,24 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             // TODO : 버튼 백그라운드 색상 변경
         } else {
             // arrivalStation에 도착역 넣기
-            arrivalStation = String(sender.titleLabel!.text!)
+            endStation = String(sender.titleLabel!.text!)
             
             // 출발역과 도착역이 다르면 alert 띄우기
-            if startStation == arrivalStation {
+            if startStation == endStation {
                 
             } else {
                 // arrival alert
                 let popAlert = UIAlertController(title: "도착역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
                 
-                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
                     // clickBtn 카운트 초기화
                     self.clickBtn = 0
+                    
+                    // detail 화면 modal
+                    self.performSegue(withIdentifier: "goToDetail", sender: self)
+                    
                 }
-                let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+                let cancelAction = UIAlertAction(title: "취소", style: .destructive, handler: nil)
                 
                 popAlert.addAction(cancelAction)
                 popAlert.addAction(okAction)
@@ -423,9 +439,38 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 // TODO : 버튼 백그라운드 색상 변경
                 
             }
-            
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetail" {
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.startLabel = startStation
+            destinationVC.endLabel = endStation
+        }
+    }
+    
+    // current button 누르면
+    @IBAction func currentButtonPressed(_ sender: UIButton) {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        // 백그라운드 일때도 추적 권한 요청
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // 위치 업데이트
+        locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
+        // 위도, 경도 가져오기
+        let coor = locationManager.location?.coordinate
+        latitude = coor?.latitude
+        longitude = coor?.longitude
         
+        let gpsAlert = UIAlertController(title: "현재 위치", message: "위도: \(latitude!)\n경도: \(longitude!)", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        gpsAlert.addAction(okAction)
+        present(gpsAlert, animated: true, completion: nil)
     }
     
     // 더블탭 줌인, 줌아웃
@@ -443,13 +488,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
     
-    // view가 나타나면 offset 이동
-//    override func viewDidAppear(_ animated: Bool) {
-//        // zoom scale 설정
-//        scrollView.setZoomScale(1.0, animated: true)
-//        // offset 임의대로 때려박음
-//        scrollView.setContentOffset(CGPoint(x: 450, y: 200), animated: true)
-//    }
-
+    
+    //앱의 위치 추적 허가 상태가 변경되면 이 메서드를 호출해서 알려준다.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            print("항상 허용!")
+        }
+    }
+    
 }
 

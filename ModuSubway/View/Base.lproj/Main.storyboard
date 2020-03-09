@@ -22,7 +22,24 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1086" height="919"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU1-D1-las">
+                                        <rect key="frame" x="334" y="689" width="60" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="CNF-EZ-ly9"/>
+                                            <constraint firstAttribute="height" constant="60" id="vkE-iq-YSv"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="scope" catalog="system"/>
+                                        <connections>
+                                            <action selector="currentButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o4H-qt-ucp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="r9H-eE-RSa" firstAttribute="bottom" secondItem="RU1-D1-las" secondAttribute="bottom" constant="20" id="NFF-DW-vSM"/>
+                                    <constraint firstItem="r9H-eE-RSa" firstAttribute="trailing" secondItem="RU1-D1-las" secondAttribute="trailing" constant="20" id="tlO-EU-fBZ"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="MR6-5b-pW7"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="r9H-eE-RSa"/>
                             </scrollView>
@@ -38,13 +55,114 @@
                     </view>
                     <navigationItem key="navigationItem" title="모두의 지하철" id="u1c-OU-Y9n"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="RU1-D1-las" id="Ysj-aw-LR7"/>
                         <outlet property="imageView" destination="8dB-Se-hlv" id="662-Jr-fTv"/>
                         <outlet property="scrollView" destination="jxU-mD-BqY" id="JNH-Uk-j96"/>
+                        <segue destination="gRR-Ml-wnu" kind="presentation" identifier="goToDetail" id="6gZ-sW-1UB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952.1739130434785" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1810" y="129"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="GHx-Bm-Gil">
+            <objects>
+                <viewController id="gRR-Ml-wnu" customClass="DetailViewController" customModule="ModuSubway" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RjR-8T-bib">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-rD-yc3">
+                                <rect key="frame" x="132" y="30" width="150" height="538"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="s0k-6f-IY1">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="219"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출발역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adl-7z-Iyh">
+                                                <rect key="frame" x="46.5" y="0.0" width="57.5" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서현역" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C1q-ba-P1j">
+                                                <rect key="frame" x="0.0" y="69" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="CLC-aD-RSf"/>
+                                                    <constraint firstAttribute="height" constant="150" id="hXZ-yV-7ZY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-G1-dcu">
+                                        <rect key="frame" x="0.0" y="319" width="150" height="219"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도착역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPy-Yl-yB1">
+                                                <rect key="frame" x="46.5" y="0.0" width="57.5" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선릉역" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K0J-Zi-f0K">
+                                                <rect key="frame" x="0.0" y="69" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="hcp-92-zGk"/>
+                                                    <constraint firstAttribute="height" constant="150" id="vur-8n-jra"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWj-0n-fhf">
+                                <rect key="frame" x="107" y="638" width="200" height="70"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="HRt-GV-vAd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="kxD-nE-mcb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="출발!"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="gRR-Ml-wnu" eventType="touchUpInside" id="1Bg-lP-7zq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-sh-jaY">
+                                <rect key="frame" x="189.5" y="734" width="35" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="취소"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="gRR-Ml-wnu" eventType="touchUpInside" id="1Zq-Iw-OfJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="x4P-zT-uPq" firstAttribute="bottom" secondItem="qrm-sh-jaY" secondAttribute="bottom" constant="38" id="7fV-Is-gIr"/>
+                            <constraint firstItem="x4P-zT-uPq" firstAttribute="bottom" secondItem="jUc-rD-yc3" secondAttribute="bottom" constant="240" id="8hP-O5-OMR"/>
+                            <constraint firstItem="x4P-zT-uPq" firstAttribute="bottom" secondItem="xWj-0n-fhf" secondAttribute="bottom" constant="100" id="BHo-0g-6ew"/>
+                            <constraint firstItem="qrm-sh-jaY" firstAttribute="centerX" secondItem="RjR-8T-bib" secondAttribute="centerX" id="cgi-TC-Cx2"/>
+                            <constraint firstItem="jUc-rD-yc3" firstAttribute="top" secondItem="x4P-zT-uPq" secondAttribute="top" constant="30" id="dme-nH-M8Y"/>
+                            <constraint firstItem="xWj-0n-fhf" firstAttribute="centerX" secondItem="RjR-8T-bib" secondAttribute="centerX" id="fjJ-FN-qjj"/>
+                            <constraint firstItem="jUc-rD-yc3" firstAttribute="centerX" secondItem="RjR-8T-bib" secondAttribute="centerX" id="seG-EX-IXG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x4P-zT-uPq"/>
+                    </view>
+                    <connections>
+                        <outlet property="endStationLabel" destination="K0J-Zi-f0K" id="EWA-yl-dTW"/>
+                        <outlet property="startStationLabel" destination="C1q-ba-P1j" id="0Ps-Ba-Dhv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmx-Jc-W39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2556.521739130435" y="128.57142857142856"/>
         </scene>
         <!--노선도-->
         <scene sceneID="9Y6-Xa-l79">
@@ -91,7 +209,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D25-lm-oN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962" y="802"/>
+            <point key="canvasLocation" x="1809" y="802"/>
         </scene>
         <!--최근검색-->
         <scene sceneID="E7l-9O-qHj">
@@ -137,7 +255,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pxt-xp-5zA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="1479"/>
+            <point key="canvasLocation" x="1809" y="1479"/>
         </scene>
         <!--설정-->
         <scene sceneID="Kfy-hf-Jva">
@@ -182,5 +300,6 @@
         <image name="img_subway.png" width="1086" height="919"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="map" catalog="system" width="64" height="56"/>
+        <image name="scope" catalog="system" width="64" height="60"/>
     </resources>
 </document>
