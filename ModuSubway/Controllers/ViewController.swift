@@ -18,8 +18,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, CLLocationManagerD
     // location manager
     var locationManager: CLLocationManager!
     
-    // timer. 위치 5초마다 갱신 용도
-    var sTimer: Timer?
     
     // pinch 제스처 객체 생성
     var pinchGesture = UIPinchGestureRecognizer()
@@ -417,7 +415,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, CLLocationManagerD
             
             // 출발역과 도착역이 다르면 alert 띄우기
             if startStation == endStation {
-                
+                // 출발역, 도착역이 같으면 다시 선택하라고 메시지 띄우기
+                let popAlert = UIAlertController(title: "알림", message: "출발역과 도착역이 같습니다\n다시 선택해주세요^^", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                popAlert.addAction(okAction)
+                present(popAlert, animated: true, completion: nil)
             } else {
                 // arrival alert
                 let popAlert = UIAlertController(title: "도착역은", message: "\(sender.titleLabel!.text!) 입니다", preferredStyle: .alert)
@@ -467,11 +469,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, CLLocationManagerD
         
         let gpsAlert = UIAlertController(title: "현재 위치", message: "위도: \(latitude!)\n경도: \(longitude!)", preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default) { (action) in
+            self.locationManager.stopUpdatingLocation()
+        }
         
         gpsAlert.addAction(okAction)
         present(gpsAlert, animated: true, completion: nil)
     }
+    
     
     // 더블탭 줌인, 줌아웃
     @objc func tapToZoom() {

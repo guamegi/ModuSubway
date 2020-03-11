@@ -15,19 +15,19 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var endStationLabel: UILabel!
     
     var locationManager: CLLocationManager!
-    var sTimer: Timer?
     
     // 위도, 경도
     var latitude: CLLocationDistance?
     var longitude: CLLocationDistance?
     
+    // 출발역, 도착역 label
     var startLabel = ""
     var endLabel = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // label 테두리 
+        // label 테두리 drawing
         startStationLabel.layer.borderWidth = 3
         startStationLabel.layer.borderColor = UIColor.red.cgColor
         startStationLabel.layer.cornerRadius = 0.5 * startStationLabel.bounds.width
@@ -36,13 +36,28 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
         endStationLabel.layer.borderColor = UIColor.red.cgColor
         endStationLabel.layer.cornerRadius = 0.5 * endStationLabel.bounds.width
         
+        // 출발역, 도착역 정보 받아와서 표시
         startStationLabel.text = startLabel
         endStationLabel.text = endLabel
 
     }
-
+    
+    
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        // location test start// 출발,도착역 설정후 start 버튼 투르면 시작하게끔.
+        // appDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // 타이머가 nil이 아니면(있으면) 알림
+        guard appDelegate.timer == nil else {
+            // alert
+            let popAlert = UIAlertController(title: "알림", message: "현재 운행중입니다!\n운행 취소하시려면 출발버튼 하단 취소버튼을 눌러주세요^^", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            popAlert.addAction(okAction)
+            present(popAlert, animated: true, completion: nil)
+            return
+        }
+        // 타이머 시작
+        appDelegate.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true)
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         // 백그라운드 일때도 추적 권한 요청
@@ -56,20 +71,20 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
         latitude = coor?.latitude
         longitude = coor?.longitude
         
-        print(latitude!, longitude!)
-        
-        sTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true)
-        // location test end //
-        
         // 닫기
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        
+        // 타이머 해제
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.timer?.invalidate()
+        
+        // 닫기
         self.dismiss(animated: true, completion: nil)
     }
     
-    // timer callback
     @objc func timerCallback() {
         print(latitude!, longitude!)
     }
