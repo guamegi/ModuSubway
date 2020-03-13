@@ -76,33 +76,33 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-rD-yc3">
                                 <rect key="frame" x="132" y="30" width="150" height="538"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="s0k-6f-IY1">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="s0k-6f-IY1">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="219"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출발역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adl-7z-Iyh">
-                                                <rect key="frame" x="46.5" y="0.0" width="57.5" height="64"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <rect key="frame" x="49" y="0.0" width="52" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서현역" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C1q-ba-P1j">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="압구정로데오" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1q-ba-P1j">
                                                 <rect key="frame" x="0.0" y="69" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="CLC-aD-RSf"/>
                                                     <constraint firstAttribute="height" constant="150" id="hXZ-yV-7ZY"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-G1-dcu">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-G1-dcu">
                                         <rect key="frame" x="0.0" y="319" width="150" height="219"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도착역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPy-Yl-yB1">
-                                                <rect key="frame" x="46.5" y="0.0" width="57.5" height="64"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <rect key="frame" x="49" y="0.0" width="52" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -112,7 +112,7 @@
                                                     <constraint firstAttribute="width" constant="150" id="hcp-92-zGk"/>
                                                     <constraint firstAttribute="height" constant="150" id="vur-8n-jra"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -127,9 +127,9 @@
                                     <constraint firstAttribute="height" constant="70" id="HRt-GV-vAd"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="kxD-nE-mcb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="출발!"/>
+                                <state key="normal" title="탑승"/>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="gRR-Ml-wnu" eventType="touchUpInside" id="1Bg-lP-7zq"/>
                                 </connections>

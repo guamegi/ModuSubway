@@ -28,12 +28,16 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         // label 테두리 drawing
-        startStationLabel.layer.borderWidth = 3
-        startStationLabel.layer.borderColor = UIColor.red.cgColor
+        startStationLabel.layer.borderWidth = 5
+        startStationLabel.layer.borderColor = UIColor.lightGray.cgColor
+        startStationLabel.layer.backgroundColor = UIColor.white.cgColor
+        startStationLabel.textColor = UIColor.black
         startStationLabel.layer.cornerRadius = 0.5 * startStationLabel.bounds.width
         
-        endStationLabel.layer.borderWidth = 3
-        endStationLabel.layer.borderColor = UIColor.red.cgColor
+        endStationLabel.layer.borderWidth = 5
+        endStationLabel.layer.borderColor = UIColor.lightGray.cgColor
+        endStationLabel.layer.backgroundColor = UIColor.white.cgColor
+        endStationLabel.textColor = UIColor.black
         endStationLabel.layer.cornerRadius = 0.5 * endStationLabel.bounds.width
         
         // 출발역, 도착역 정보 받아와서 표시
@@ -80,6 +84,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
         // 타이머 해제
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.timer?.invalidate()
+        appDelegate.timer = nil
         
         // 닫기
         self.dismiss(animated: true, completion: nil)

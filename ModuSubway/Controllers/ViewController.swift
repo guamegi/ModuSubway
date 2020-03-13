@@ -416,7 +416,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, CLLocationManagerD
             // 출발역과 도착역이 다르면 alert 띄우기
             if startStation == endStation {
                 // 출발역, 도착역이 같으면 다시 선택하라고 메시지 띄우기
-                let popAlert = UIAlertController(title: "알림", message: "출발역과 도착역이 같습니다\n다시 선택해주세요^^", preferredStyle: .alert)
+                let popAlert = UIAlertController(title: "알림", message: "출발역과 도착역이 같습니다\n다시 선택해주세요", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
                 popAlert.addAction(okAction)
                 present(popAlert, animated: true, completion: nil)
